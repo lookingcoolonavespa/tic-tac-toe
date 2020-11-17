@@ -1,0 +1,121 @@
+html {
+  font-size: 10px;
+  background-color: #fbda61;
+  background-image: linear-gradient(45deg, #fbda61 0%, #ff5acd 100%);
+}
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  min-height: 100vh;
+}
+button {
+  width: 100%;
+  background-color: #fcfcfc;
+  border: 1px solid white;
+  height: 6rem;
+  font-size: 1.6rem;
+  font-family: ubuntu, sans-serif;
+  cursor: pointer;
+  border-radius: 50px;
+}
+button:hover {
+  background: white;
+  box-shadow: 0 0 1px 1px #fbda61, 0 0 15px 3px #fbda61;
+  z-index: 99;
+}
+#paper {
+  width: 50%;
+  background: white;
+  min-height: 80vh;
+}
+#calculator {
+  width: 50%;
+  background: white;
+}
+#display {
+  display: flex;
+  flex-direction: column;
+  height: 15rem;
+  letter-spacing: 0.2rem;
+  font-family: "Source sans pro", sans-serif;
+  background-color: #ffffff;
+  color: rgb(34, 34, 34);
+  box-sizing: border-box;
+  border: 3px solid #fcfcfc;
+  text-align: right;
+  border-bottom: 1px solid rgb(238, 238, 238);
+}
+#display-main {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 70%;
+  font-size: 3rem;
+  margin-right: 30px;
+}
+#display-secondary {
+  padding-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-left: 30px;
+  height: 40%;
+  font-size: 1.5rem;
+  color: rgba(34, 34, 34, 0.5);
+}
+#calculator-body {
+  padding-top: 5px;
+  height: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-template-areas:
+    "head head head op"
+    "subhead subhead subhead op"
+    "num num num op"
+    "num num num op"
+    "num num num equal"
+    "zero zero dec equal";
+}
+#head {
+  grid-area: head;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+#subhead {
+  grid-area: subhead;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+#num-body {
+  grid-area: num;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+#op-body {
+  grid-area: op;
+  display: flex;
+  flex-direction: column;
+}
+#equal {
+  font-weight: bold;
+  grid-area: equal;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+#zero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-area: zero;
+}
+#dec {
+  grid-area: dec;
+}

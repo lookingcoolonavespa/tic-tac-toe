@@ -1,0 +1,149 @@
+:root {
+  --main-font: #0e1116;
+  --sec-font: #6a706e;
+  --bg: #f7f4f3;
+  --player: #ef5b5b;
+  --cpu: #7796cb;
+}
+html {
+  font-size: 10px;
+  font-family: "cutive mono";
+}
+body {
+  margin: 0;
+  padding: 0;
+  color: var(--main-font);
+  background-color: var(--bg);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+.inactive {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0;
+}
+.btn-ctn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.btn-ctn p {
+  text-align: center;
+}
+.btn {
+  cursor: pointer;
+  transition: 0.2s ease-out;
+}
+.btn:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+.result .btn {
+  margin-top: 0.5em;
+}
+.result .btn-ctn {
+  margin-bottom: 0.7em;
+}
+.title {
+  align-self: start;
+  position: absolute;
+  text-align: center;
+}
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.3rem;
+}
+.page h2 {
+  margin-top: 0;
+  margin-bottom: 2em;
+}
+.select-btn-ctn,
+.name-input-ctn,
+.scoreboard {
+  display: flex;
+  flex-direction: row;
+}
+input[type="text"] {
+  -webkit-appearance: none;
+  margin-left: 2em;
+  background-color: var(--bg);
+  border: 1px solid black;
+  padding: 0.5em;
+  font-family: "cutive mono";
+}
+input[type="text"]:focus {
+  outline: none;
+}
+.select-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30rem;
+}
+.select-btn p {
+  text-align: center;
+  margin-top: 1.5em;
+  margin-bottom: 0;
+}
+#monster-btn {
+  margin-top: 1.7rem;
+}
+.name-btn {
+  margin-top: 1.5em;
+}
+.gameboard {
+  font-size: 9rem;
+  align-self: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1.3em);
+  grid-template-rows: repeat(3, 1.3em);
+}
+.game-square {
+  border-left: 1px solid var(--sec-font);
+  display: grid;
+  place-items: center;
+}
+.game-square:nth-child(n + 4) {
+  border-top: 1px solid var(--sec-font);
+}
+.game-square:nth-child(3n + 1) {
+  border-left: none;
+}
+.scoreboard {
+  margin-top: 6em;
+}
+.player-scoreboard {
+  margin-right: 3em;
+}
+.score {
+  text-align: center;
+  font-size: 7rem;
+  margin: 0.1em 0;
+}
+.not-my-turn {
+  opacity: 0.5;
+}
+.player-marker {
+  margin-right: 0.5em;
+  font-size: 3rem;
+}
+.popup {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  background-color: var(--bg);
+  border: 1px solid black;
+  padding: 1em 3em;
+  font-size: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.faded {
+  filter: blur(8px);
+}

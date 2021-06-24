@@ -66,7 +66,6 @@ const game = (() => {
     };
 
     const displayMove = () => {
-      // const rdmMove = generateMove();
       const miniMaxMove = monsterCode.minimax(gameboard.array, 1, true);
 
       gameboard.array[miniMaxMove.index] = monster.marker;
@@ -320,6 +319,7 @@ const start = (() => {
 
   var pageName = document.querySelector(".name");
   var pageNameSubmit = pageName.querySelector(".name-btn");
+  const pageNameText = pageName.querySelector(".name-text");
 
   pageNameSubmit.addEventListener("click", () => {
     start.op === "friend" ? createPlayers("friend") : createPlayers("cpu");
@@ -333,47 +333,45 @@ const start = (() => {
     switch (btn) {
       case "friend":
         start.op = "friend";
+        helpers.show(nameInputs[1]);
+        pageNameText.textContent = "What are your names?";
         helpers.show(pageName);
         break;
       case "cpu":
         start.op = "cpu";
         helpers.hide(nameInputs[1]);
-        const pageNameText = pageName.querySelector(".name-text");
         pageNameText.textContent = "What is your name?";
         helpers.show(pageName);
     }
   }
 
   function createPlayers() {
-    var player1Name;
-    player1Name = nameInputs[0].value;
+    const player1Name = nameInputs[0].value;
 
     const player1Scoreboard = document.querySelector(".player-scoreboard");
 
     player1 = player(player1Name, "x", 0, player1Scoreboard);
 
     const player1NameScore = player1Scoreboard.querySelector("p");
-    player1NameScore.append(player1Name);
+    player1NameScore.textContent = player1Name;
+
+    const cpuScoreboard = document.querySelector(".cpu-scoreboard");
+    const player2Scoreboard = document.querySelector(".player2-scoreboard");
 
     switch (start.op) {
       case "friend":
-        var player2Name;
-
-        player2Name = nameInputs[1].value;
-
-        const player2Scoreboard = document.querySelector(".player2-scoreboard");
-
+        const player2Name = nameInputs[1].value;
         player2 = player(player2Name, "o", 0, player2Scoreboard);
 
         const player2NameScore = player2Scoreboard.querySelector("p");
-        player2NameScore.append(player2Name);
+        player2NameScore.textContent = player2Name;
 
+        helpers.hide(cpuScoreboard);
         helpers.show(player2Scoreboard);
         break;
       case "cpu":
-        const cpuScoreboard = document.querySelector(".cpu-scoreboard");
-
         monster = player("monster", "o", 0, cpuScoreboard);
+        helpers.hide(player2Scoreboard);
         helpers.show(cpuScoreboard);
         break;
     }

@@ -21,7 +21,7 @@ body {
 .inactive {
   position: absolute;
   pointer-events: none;
-  opacity: 0;
+  opacity: 0 !important;
 }
 .btn-ctn {
   display: flex;
